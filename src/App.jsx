@@ -11,7 +11,13 @@ function App() {
     setBookmarked([...bookmarked, blog])
   }
 
-  console.log(bookmarked);
+  const [redingCount, setReadingCount] = useState(0);
+
+  const handleMarkedAsRead = (time) => {
+    const newTime = redingCount + time;
+    setReadingCount(newTime)
+  }
+  
 
   return (
     <>
@@ -21,11 +27,11 @@ function App() {
       <div className="main-container container mx-auto flex text-center">
         <div className="left-container w-[70%]">
           
-          <Blogs handleBookmarked={handleBookmarked}></Blogs>
+          <Blogs handleBookmarked={handleBookmarked} handleMarkedAsRead={handleMarkedAsRead} ></Blogs>
         </div>
         <div className="right-container  w-[30%] border-2">
-            <h1>Reading Time: 0{}</h1>
-            <h1>Bookmarked Count : 0{}</h1>
+            <h1>Reading Time: {redingCount}</h1>
+            <h1>Bookmarked Count : {bookmarked.length}</h1>
 
             {
               bookmarked.map((marked) => <p>{marked.title}</p>)

@@ -39,7 +39,7 @@ function App() {
             <h1>Bookmarked Count : {bookmarked.length}</h1>
 
             {
-              bookmarked.map((marked) => <p key={marked.id} className='bg-amber-400 p-2.5 shadow-2xl m-2 text-white'>{marked.title}</p>)
+              bookmarked.map((marked) => <p key={marked.id} className='bg-amber-400 text-xl p-2.5 shadow-2xl m-2 text-white'>{marked.title}</p>)
             }
 
         </div>
